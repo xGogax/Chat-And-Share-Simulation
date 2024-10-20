@@ -33,7 +33,7 @@ void ChatLogHistory::addUser(User* user, const std::string& message) {
 }
 
 void ChatLogHistory::printHistory() const {
-    std::cout << "Chat log history of last " << capacity << " users:\n";
+    std::cout << "\033[101m\033[97m\033[1m         CHAT HISTORY         \033[0m" << endl;
     for (int i = 0; i < count; ++i) {
         history[i]->printUser();
         history[i]->printLastMessage();

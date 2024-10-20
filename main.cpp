@@ -16,6 +16,8 @@ int main() {
     int x;
     int x5;
 
+    int x0 = 2;
+
     string name;
     string surname;
     string number;
@@ -137,7 +139,7 @@ int main() {
                         cin.ignore();
                         getline(cin, content);
                         users[i]->shareContent(users[i], content);
-                        sharesHistory.addUser(users[i]);
+                        sharesHistory.addUser(users[i], x0);
                         cout << "Content shared with " << users[i]->getNumber() << "!" << endl;
                         break;
                     }
@@ -152,7 +154,7 @@ int main() {
                 break;
 
             case 7:
-                cout << "Sekvenca deljenja:" << endl;
+                cout << "\033[101m\033[97m\033[1m         SHARE HISTORY        \033[0m" << endl;
                 sharesHistory.printShares();
             break;
 
@@ -169,7 +171,8 @@ int main() {
                 cout << "+          SETTINGS OPTIONS           +" << endl;
                 cout << "+-------------------------------------+" << endl;
                 cout << "| 1. Set n (default value = 3)        |" << endl;
-                cout << "| 2. Exit                             |" << endl;
+                cout << "| 2. Set x (default value = 2)        |" << endl;
+                cout << "| 3. Exit                             |" << endl;
                 cout << "+++++++++++++++++++++++++++++++++++++++" << endl;
                 cout << endl;
                 cin >> x5;
@@ -178,8 +181,10 @@ int main() {
                     cin >> x5;
                     history = new ChatLogHistory(x5);
                     cout << endl;
-                } else if (x5 == 2) {
-                    break;
+                } else if(x5 == 2) {
+                    cout << "Enter x ";
+                    cin >> x0;
+                    cout << endl;
                 }
                 break;
 

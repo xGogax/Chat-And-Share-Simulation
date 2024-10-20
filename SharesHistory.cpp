@@ -13,7 +13,7 @@ SharesHistory::~SharesHistory() {
     }
 }
 
-void SharesHistory::addUser(User* user) {
+void SharesHistory::addUser(User* user, int x) {
     SharesHistoryNode* newNode = new SharesHistoryNode(user);
 
     if (head == nullptr) {
@@ -24,11 +24,16 @@ void SharesHistory::addUser(User* user) {
 
         while (current) {
             if (current->user->getNumber() == user->getNumber()) {
-                if (current->user->getNumber() != head->user->getNumber()) {
-                    if (previous) {
+                if (previous) {
+                    if(current->numb == x-1){
+                        previous->next = current->next;
+                        current->next = head;
+                        head = current;
+                    } else {
                         User* temp = current->user;
                         current->user = previous->user;
                         previous->user = temp;
+                        previous->numb++;
                     }
                 }
                 return;
@@ -59,10 +64,10 @@ void SharesHistory::printShares() const {
     }
 
     while (current) {
-        std::cout << current->user->getNumber();
+        current->user->printUser();
         current = current->next;
         if (current) {
-            std::cout << " -> ";
+            std::cout << "               |" << endl;
         }
     }
     std::cout << std::endl;

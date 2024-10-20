@@ -7,6 +7,7 @@ class SharesHistoryNode {
 public:
     User* user;
     SharesHistoryNode* next;
+    int numb = 1;
 
     SharesHistoryNode(User* u) : user(u), next(nullptr) {}
 };
@@ -16,7 +17,7 @@ public:
     SharesHistory();
     ~SharesHistory();
 
-    void addUser(User* user);
+    void addUser(User* user, int x);
     void printHistory() const;
     void printShares() const;
 
