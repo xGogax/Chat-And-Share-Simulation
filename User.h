@@ -37,7 +37,7 @@ private:
 
     SharesHistory* sharesHistory;
 
-    string* sharedContent;
+    std::string* sharedContent;
     int sharedContentCount;
     int sharedContentCapacity;
 

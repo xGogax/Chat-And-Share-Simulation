@@ -60,7 +60,6 @@ std::string User::getNumber() const {
 
 void User::shareContent(User* user, const std::string& content) {
     addSharedContent(content);
-    sharesHistory->addUser(user);
 }
 
 void User::addSharedContent(const std::string& content) {

@@ -23,23 +23,24 @@ void SharesHistory::addUser(User* user) {
         SharesHistoryNode* previous = nullptr;
 
         while (current) {
-            if (current->user == user) {
-                if (previous) {
-                    previous->next = current->next;
-                    current->next = head;
-                    head = current;
+            if (current->user->getNumber() == user->getNumber()) {
+                if (current->user->getNumber() != head->user->getNumber()) {
+                    if (previous) {
+                        User* temp = current->user;
+                        current->user = previous->user;
+                        previous->user = temp;
+                    }
                 }
                 return;
             }
             previous = current;
             current = current->next;
         }
+
         newNode->next = head;
         head = newNode;
     }
 }
-
-
 
 void SharesHistory::printHistory() const {
     SharesHistoryNode* current = head;
@@ -53,7 +54,7 @@ void SharesHistory::printHistory() const {
 void SharesHistory::printShares() const {
     SharesHistoryNode* current = head;
     if (current == nullptr) {
-        std::cout << "Nema istorije deljenja.\n";
+        std::cout << "No shares history.\n";
         return;
     }
 

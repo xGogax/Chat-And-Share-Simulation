@@ -28,7 +28,7 @@ int main() {
         cout << "+-------------------------------------+" << endl;
         cout << "| 1. Add Contact                      |" << endl;
         cout << "| 2. View chat log with user          |" << endl;
-        cout << "| 3. View shares with user            |" << endl; // Dodata opcija
+        cout << "| 3. View shares with user            |" << endl;
         cout << "| 4. Send message                     |" << endl;
         cout << "| 5. Share content                    |" << endl;
         cout << "| 6. Chat history                     |" << endl;
@@ -137,6 +137,7 @@ int main() {
                         cin.ignore();
                         getline(cin, content);
                         users[i]->shareContent(users[i], content);
+                        sharesHistory.addUser(users[i]);
                         cout << "Content shared with " << users[i]->getNumber() << "!" << endl;
                         break;
                     }

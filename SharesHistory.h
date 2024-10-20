@@ -17,7 +17,6 @@ public:
     ~SharesHistory();
 
     void addUser(User* user);
-
     void printHistory() const;
     void printShares() const;
 
